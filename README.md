@@ -18,7 +18,7 @@
     <td style="text-align: right; border: none; height: 20em;">
         <div style="float: right;" align="left">
             <b>Разработал</b>: <br/>
-            Колесников Евгений Иванович
+            Решетов Юрий Александрович
         </div>
     </td>
   </tr>
