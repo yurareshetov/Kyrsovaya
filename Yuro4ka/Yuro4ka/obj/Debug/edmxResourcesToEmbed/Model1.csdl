@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bakery_kpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="SanitaryBook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nomeclatyra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="UserDocument" Relationship="Self.FK_UserDocument_Document" FromRole="Document" ToRole="UserDocument" />
+  </EntityType>
+  <EntityType Name="OrderList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Logo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Delivery" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OrderList1" Relationship="Self.FK_OrderList_OrderList" FromRole="OrderList" ToRole="OrderList1" />
+    <NavigationProperty Name="OrderList2" Relationship="Self.FK_OrderList_OrderList" FromRole="OrderList1" ToRole="OrderList" />
+    <NavigationProperty Name="ProductOrderSV" Relationship="Self.FK_ProductOrderSV_OrderList" FromRole="OrderList" ToRole="ProductOrderSV" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Photo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product1" Relationship="Self.FK_Product_Product" FromRole="Product" ToRole="Product1" />
+    <NavigationProperty Name="Product2" Relationship="Self.FK_Product_Product" FromRole="Product1" ToRole="Product" />
+    <NavigationProperty Name="Product11" Relationship="Self.FK_Product_Product1" FromRole="Product" ToRole="Product1" />
+    <NavigationProperty Name="Product3" Relationship="Self.FK_Product_Product1" FromRole="Product1" ToRole="Product" />
+    <NavigationProperty Name="ProductOrderSV" Relationship="Self.FK_ProductOrderSV_Product" FromRole="Product" ToRole="ProductOrderSV" />
+  </EntityType>
+  <EntityType Name="ProductOrders___">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="ProductOrderSV">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="productid" Type="Int32" />
+    <Property Name="orderid" Type="Int32" />
+    <NavigationProperty Name="OrderList" Relationship="Self.FK_ProductOrderSV_OrderList" FromRole="ProductOrderSV" ToRole="OrderList" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_ProductOrderSV_Product" FromRole="ProductOrderSV" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="UserService" Relationship="Self.FK_UserService_Service" FromRole="Service" ToRole="UserService" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="Double" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Patronomyc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Emai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BirthName" Type="DateTime" Precision="0" />
+    <Property Name="Rolld" Type="Int32" Nullable="false" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WorkExperience" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Direction" Type="Double" />
+    <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="UserDocument" Relationship="Self.FK_UserDocument_User" FromRole="User" ToRole="UserDocument" />
+    <NavigationProperty Name="UserService" Relationship="Self.FK_UserService_User" FromRole="User" ToRole="UserService" />
+  </EntityType>
+  <EntityType Name="UserDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Documentid" Type="Int32" Nullable="false" />
+    <Property Name="Bakerid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Document" Relationship="Self.FK_UserDocument_Document" FromRole="UserDocument" ToRole="Document" />
+    <NavigationProperty Name="User" Relationship="Self.FK_UserDocument_User" FromRole="UserDocument" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserService">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Userid" Type="Int32" Nullable="false" />
+    <Property Name="Serviceid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_UserService_Service" FromRole="UserService" ToRole="Service" />
+    <NavigationProperty Name="User" Relationship="Self.FK_UserService_User" FromRole="UserService" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_UserDocument_Document">
+    <End Role="Document" Type="Self.Document" Multiplicity="1" />
+    <End Role="UserDocument" Type="Self.UserDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Document">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserDocument">
+        <PropertyRef Name="Documentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderList_OrderList">
+    <End Role="OrderList" Type="Self.OrderList" Multiplicity="1" />
+    <End Role="OrderList1" Type="Self.OrderList" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="OrderList">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderList1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductOrderSV_OrderList">
+    <End Role="OrderList" Type="Self.OrderList" Multiplicity="0..1" />
+    <End Role="ProductOrderSV" Type="Self.ProductOrderSV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderList">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductOrderSV">
+        <PropertyRef Name="orderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Product1" Type="Self.Product" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Product1">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Product1" Type="Self.Product" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductOrderSV_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductOrderSV" Type="Self.ProductOrderSV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductOrderSV">
+        <PropertyRef Name="productid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Rolld" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserService_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="UserService" Type="Self.UserService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserService">
+        <PropertyRef Name="Serviceid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserDocument_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserDocument" Type="Self.UserDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserDocument">
+        <PropertyRef Name="Bakerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserService_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserService" Type="Self.UserService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserService">
+        <PropertyRef Name="Userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bakery_kpEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Document" EntityType="Self.Document" />
+    <EntitySet Name="OrderList" EntityType="Self.OrderList" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="ProductOrders___" EntityType="Self.ProductOrders___" />
+    <EntitySet Name="ProductOrderSV" EntityType="Self.ProductOrderSV" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="Service" EntityType="Self.Service" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="UserDocument" EntityType="Self.UserDocument" />
+    <EntitySet Name="UserService" EntityType="Self.UserService" />
+    <AssociationSet Name="FK_UserDocument_Document" Association="Self.FK_UserDocument_Document">
+      <End Role="Document" EntitySet="Document" />
+      <End Role="UserDocument" EntitySet="UserDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderList_OrderList" Association="Self.FK_OrderList_OrderList">
+      <End Role="OrderList" EntitySet="OrderList" />
+      <End Role="OrderList1" EntitySet="OrderList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductOrderSV_OrderList" Association="Self.FK_ProductOrderSV_OrderList">
+      <End Role="OrderList" EntitySet="OrderList" />
+      <End Role="ProductOrderSV" EntitySet="ProductOrderSV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Product" Association="Self.FK_Product_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product1" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Product1" Association="Self.FK_Product_Product1">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product1" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductOrderSV_Product" Association="Self.FK_ProductOrderSV_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductOrderSV" EntitySet="ProductOrderSV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserService_Service" Association="Self.FK_UserService_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="UserService" EntitySet="UserService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserDocument_User" Association="Self.FK_UserDocument_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserDocument" EntitySet="UserDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserService_User" Association="Self.FK_UserService_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserService" EntitySet="UserService" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
