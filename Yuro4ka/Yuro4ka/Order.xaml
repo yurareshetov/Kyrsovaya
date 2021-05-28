@@ -5,20 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yuro4ka"
         mc:Ignorable="d"
-        Title="Order" Height="450" Width="800">
+        Title="Order" Height="450" Width="800" Name="Root">
     <Grid>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
+        <StackPanel
+            Grid.Column="0" VerticalAlignment="Bottom">
+            <Button      
+                Height="20"
+                Content="{Binding AdminModeCaption}"
+                Name="AdminButton"
+                Click="AdminButton_Click"/>
+            <Button Content="Добавить заказ" x:Name="AddSevice" Click="AddSevice_Click"></Button>
+            <Button Content="Выход"></Button>
+           
+        </StackPanel>
         
         <ListView
             Grid.Column="1"
     Grid.Row="0"
     ItemsSource="{Binding OrderList}"
     x:Name="ProductListView">
+            
         <ListView.ItemTemplate>
+            
+            
             <DataTemplate>
                 <!-- рисуем вокруг элемента границу с загругленными углами -->
                 <Border 
@@ -46,9 +61,11 @@
                         Grid.Column="2" 
                         HorizontalAlignment="Right" 
                         Margin="10"/>
-                        
 
-                        <!-- для содержимого рисуем вложенную сетку -->
+                            <Button Visibility="{Binding DataContext.AdminVisibility, ElementName=Root}"   Content="Редактировать" HorizontalAlignment="Right"  x:Name="EdditButton" Click="EdditButton_Click" Grid.Column="1" Width="50" Height="30"></Button>
+                            <Button Visibility="{Binding DataContext.AdminVisibility, ElementName=Root}"   Content="Удалить" HorizontalAlignment="Right" Margin="0 0 50 0" Click="DeletteButton_Click" x:Name="DeletteButton" Grid.Column="1" Width="50" Height="30"></Button>
+
+                            <!-- для содержимого рисуем вложенную сетку -->
                         <Grid Grid.Column="1" Margin="5">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20"/>
@@ -62,8 +79,7 @@
                                 Text="{Binding Date}"/>
                                 <TextBlock 
                                 Text=" | "/>
-                                <TextBlock 
-                                Text="{Binding Logo}"/>
+                                
                             </StackPanel>
 
                             <TextBlock 
@@ -72,11 +88,20 @@
                             <TextBlock 
                             Text="{Binding Delivery}" 
                             Grid.Row="2"/>
-                        </Grid>
+                               
+                            </Grid>
                     </Grid>
                 </Border>
             </DataTemplate>
         </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style 
+                    TargetType="ListViewItem">
+                    <Setter 
+                        Property="HorizontalContentAlignment"
+                        Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
     </Grid>
 </Window>

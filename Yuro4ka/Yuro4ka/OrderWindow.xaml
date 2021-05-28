@@ -5,38 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yuro4ka"
         mc:Ignorable="d"
-        Title="OrderWindow" Height="450" Width="800">
+        Title="{Binding WindowName}"
+         Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition  Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Image 
-                Grid.Column="0"
-            VerticalAlignment="Top"
-           MaxHeight="200" 
-           MaxWidth="200" 
-           Source="{Binding CurrentService.ImageUri}" />
+        
 
         <StackPanel Grid.Column="1" Orientation="Horizontal" Visibility="{Binding NewProduct}">
             <Label Content="Идентификатор услуги: "/>
             <Label Content="{Binding CurrentService.Id}"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Margin="5 60">
+            <Label Content="ВНомер"/>
+            <TextBox Text="{Binding CurrentService.Number}"/>
             <Label Content="Время заказа"/>
-            <TextBox Text="{Binding CurrentService.FirstName}"/>
+            <TextBox Text="{Binding CurrentService.Date}"/>
             <Label Content="Цена"/>
-            <TextBox Text="{Binding CurrentService.LastName}"/>
+            <TextBox Text="{Binding CurrentService.Total}"/>
             <Label Content="Курьер"/>
+            <TextBox Text="{Binding CurrentService.Delivery}"/>
            
-            <TextBox Text="{Binding CurrentService.Rate}"/>
-            <Label Content="Товар"/>
-            <TextBox Text="{Binding CurrentService.Achievements}"/>
            
             
 
-            <Button Width="100" Margin="5" HorizontalAlignment="Left" Click="SaveButton_Click">Сохранить</Button>
+            <Button Width="100" Margin="5" x:Name="SaveButton" Click="SaveButton_Click" HorizontalAlignment="Left">Сохранить</Button>
         </StackPanel>
     </Grid>
 </Window>

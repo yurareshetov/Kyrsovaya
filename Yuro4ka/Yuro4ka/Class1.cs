@@ -9,5 +9,6 @@ namespace Yuro4ka
     class Core
     {
         public static bakery_kpEntities DB = new bakery_kpEntities();
+
     }
 }
