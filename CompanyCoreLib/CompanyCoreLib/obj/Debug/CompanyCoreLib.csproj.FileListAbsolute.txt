@@ -4,3 +4,9 @@ C:\Users\User\source\repos\CompanyCoreLib\CompanyCoreLib\obj\Debug\CompanyCoreLi
 C:\Users\User\source\repos\CompanyCoreLib\CompanyCoreLib\obj\Debug\CompanyCoreLib.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\CompanyCoreLib\CompanyCoreLib\obj\Debug\CompanyCoreLib.dll
 C:\Users\User\source\repos\CompanyCoreLib\CompanyCoreLib\obj\Debug\CompanyCoreLib.pdb
+C:\Git\Kyrsovaya\CompanyCoreLib\CompanyCoreLib\bin\Debug\CompanyCoreLib.dll
+C:\Git\Kyrsovaya\CompanyCoreLib\CompanyCoreLib\bin\Debug\CompanyCoreLib.pdb
+C:\Git\Kyrsovaya\CompanyCoreLib\CompanyCoreLib\obj\Debug\CompanyCoreLib.csprojAssemblyReference.cache
+C:\Git\Kyrsovaya\CompanyCoreLib\CompanyCoreLib\obj\Debug\CompanyCoreLib.csproj.CoreCompileInputs.cache
+C:\Git\Kyrsovaya\CompanyCoreLib\CompanyCoreLib\obj\Debug\CompanyCoreLib.dll
+C:\Git\Kyrsovaya\CompanyCoreLib\CompanyCoreLib\obj\Debug\CompanyCoreLib.pdb
