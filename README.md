@@ -34,7 +34,7 @@
 
 <div style="page-break-after: always;"></div>
 
-https://github.com/Nisshaa/Kurs
+
 
 # Содержание
 
