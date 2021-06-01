@@ -383,7 +383,7 @@ namespace Yuro4ka
 ```
 
 ### Окно заказов:
-![OrderWindow](./img/OrderWindow.png)
+![OrderWindow](./img/OrderWindow.PNG)
 #### Прмер кода разметки страницы заказов:
 ```xml
  <Grid>
@@ -611,7 +611,7 @@ namespace Yuro4ka
     }
 ```
 ### Окно добавления и редактирования заказов:
-![ServiceWindow](./img/EditOrder.png)
+![ServiceWindow](./img/EditOrder.PNG)
 #### Прмер кода разметки страницы редактирования заказов:
 ```xml
   <Grid>
@@ -875,4 +875,4 @@ namespace UnitTestProject
 }
 ```
 ## Пример работы юнит тестов:
-![EditorderWindow](./img/Unit_Tests.png)
+![EditorderWindow](./img/Unit_Tests.PNG)
