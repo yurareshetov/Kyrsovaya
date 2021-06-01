@@ -49,11 +49,11 @@
 
 ### Диаграмма Use Case:
 
-![Use case](./img/UseCase.png)
+![Use case](./img/UseCase.PNG)
 
 
 ### Диаграмма ER:
-![ER диаграмма](./img/ERD.png)
+![ER диаграмма](./img/ERD.PNG)
 
 
 
