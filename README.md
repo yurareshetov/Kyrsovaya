@@ -611,7 +611,7 @@ namespace Yuro4ka
     }
 ```
 ### Окно добавления и редактирования заказов:
-![ServiceWindow](./img/EditOrder.PNG)
+![ServiceWindow](./img/ServiceWindow.PNG)
 #### Прмер кода разметки страницы редактирования заказов:
 ```xml
   <Grid>
